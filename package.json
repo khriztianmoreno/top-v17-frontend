@@ -1,28 +1,55 @@
 {
-  "name": "top-v17-frontend",
+  "name": "sticker-buzz-top-v17-frontend",
   "version": "0.1.0",
   "private": false,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "web-vitals": "^1.0.1"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "volta": {
+    "node": "16.13.0",
+    "npm": "8.1.0"
   },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.0.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^19.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-testing-library": "^3.10.2",
+    "sass": "^1.43.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/khriztianmoreno/top-v17-frontend.git"
+  },
+  "keywords": [
+    "React.js",
+    "khriztianmoreno",
+    "make it real",
+    "bootcamp",
+    "sticker-buzz"
+  ],
+  "author": "CRISTIAN MORENO <khriztianmoreno@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/khriztianmoreno/top-v17-frontend/issues"
+  },
+  "homepage": "https://github.com/khriztianmoreno",
   "browserslist": {
     "production": [
       ">0.2%",
@@ -34,20 +61,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "volta": {
-    "node": "16.13.0",
-    "npm": "8.1.0"
-  },
-  "devDependencies": {
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb": "^19.0.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.27.1",
-    "eslint-plugin-react-hooks": "^4.3.0",
-    "sass": "^1.43.4"
   }
 }
