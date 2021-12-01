@@ -53,7 +53,6 @@
   "bugs": {
     "url": "https://github.com/khriztianmoreno/top-v17-frontend/issues"
   },
-  "homepage": "https://github.com/khriztianmoreno",
   "browserslist": {
     "production": [
       ">0.2%",
