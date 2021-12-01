@@ -1,31 +1,25 @@
-import HelloWorld from './components/HelloWorld';
+import { Routes, Route } from 'react-router-dom';
 
-import './App.scss';
-
-const profile = {
-  name: 'Khriztian Moreno',
-  age: 32,
-  isTeacher: true,
-  hobbies: ['coding', 'reading', 'listening to music'],
-};
-
-const boleano = true;
+import Home from './pages/Home';
+import Login from './pages/Sign/Login';
+import Register from './pages/Sign/Register';
+import Candidates from './pages/Candidates';
+import AddJob from './pages/Jobs/Create';
+import ApplyJob from './pages/Jobs/Apply';
+import DetailJob from './pages/Jobs/Detail';
+import BrowseJobs from './pages/Jobs';
 
 const App = () => (
-  <div className="App">
-    <HelloWorld
-      name="3463464564564564"
-      age={32}
-      isTeacher={boleano}
-      hobbies={['coding', '🥳', 'listening to music']}
-      profile={profile}
-    >
-      <div>
-        <h1>title</h1>
-      </div>
-    </HelloWorld>
-
-    <HelloWorld />
-  </div>
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/jobs" element={<BrowseJobs />} />
+    <Route path="/jobs/create" element={<AddJob />} />
+    <Route path="/jobs/detail/:id" element={<DetailJob />} />
+    <Route path="/jobs/apply/:id" element={<ApplyJob />} />
+    <Route path="/candidates" element={<Candidates />} />
+    <Route path="/login" element={<Login />} />
+    <Route path="/register" element={<Register />} />
+  </Routes>
 );
+
 export default App;
