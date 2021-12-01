@@ -1,32 +1,118 @@
-import HelloWorld from './components/HelloWorld';
+/* eslint-disable */
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+import Product from './components/examples/Product';
+
+import { getAllProducts } from './services/products';
+import { getCharacters } from './services/characters';
 
 import './App.scss';
 
-const profile = {
-  name: 'Khriztian Moreno',
-  age: 32,
-  isTeacher: true,
-  hobbies: ['coding', 'reading', 'listening to music'],
+const getPosts = async () => {
+  const url = 'https://jsonplaceholder.typicode.com/posts';
+
+  const { data } = await axios.get(url);
+  console.log('🚀 ~ file: App.jsx ~ line 17 ~ getPosts ~ response', data);
+
+  // const url = new URL('https://jsonplaceholder.typicode.com/posts');
+
+  // const headers = new Headers({
+  //   'Content-Type': 'application/json',
+  //   Authorization: 'Basic YXBpOmFwaQ==',
+  // });
+
+  // const req = new Request(url, {
+  //   method: 'GET',
+  //   headers,
+  // });
+
+  // const res = await fetch(req);
+  // const data = await res.json();
 };
 
-const boleano = true;
+const createPost = async (post) => {
+  const url = 'https://jsonplaceholder.typicode.com/posts';
 
-const App = () => (
-  <div className="App">
-    <HelloWorld
-      name="3463464564564564"
-      age={32}
-      isTeacher={boleano}
-      hobbies={['coding', '🥳', 'listening to music']}
-      profile={profile}
-      sayHello={() => console.log('Hello')}
-    >
-      <div>
-        <h1>title</h1>
-      </div>
-    </HelloWorld>
+  const { data } = await axios.post(url, post);
+  console.log('🚀 ~ file: App.jsx ~ line 38 ~ createPost ~ data', data);
 
-    <HelloWorld />
-  </div>
-);
+  // const url = new URL('https://jsonplaceholder.typicode.com/posts');
+
+  // const headers = new Headers({
+  //   'Content-Type': 'application/json',
+  // });
+
+  // const req = new Request(url, {
+  //   method: 'POST',
+  //   headers,
+  //   body: JSON.stringify(post),
+  // });
+
+  // const res = await fetch(req);
+  // const data = await res.json();
+};
+
+const App = () => {
+  const [products, setProducts] = useState([]);
+  const [characters, setCharacters] = useState([]);
+
+  const post = {
+    title: 'foo',
+    body: 'bar baz qux',
+    userId: 1,
+  };
+
+  useEffect(() => {
+    // getPosts();
+
+    createPost(post);
+    // const fetchCharacters = async () => {
+    //   const characters = await getCharacters();
+    //   setCharacters(characters);
+    // };
+
+    // fetchCharacters();
+  }, []);
+
+  // useEffect(() => {
+  //   const getMyProducts = async () => {
+  //     try {
+  //       const data = await getAllProducts();
+
+  //       setTimeout(() => {
+  //         setProducts(data);
+  //       }, 3000);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+
+  //   getMyProducts();
+  // }, []);
+
+  return (
+    <div className="App">
+      {characters.length > 0 ? (
+        characters.map((character) => (
+          <div key={character.id}>
+            <img src={character.image} alt={character.name} />
+            <p>
+              {character.name} - {character.status}
+            </p>
+          </div>
+        ))
+      ) : (
+        <h1>Loading...</h1>
+      )}
+      {/* {products.length > 0 ? (
+        products.map((product) => (
+          <Product key={product.id} product={product} />
+        ))
+      ) : (
+        <h1>Loading...</h1>
+      )} */}
+    </div>
+  );
+};
 export default App;
