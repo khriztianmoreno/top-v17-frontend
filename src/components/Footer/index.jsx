@@ -69,14 +69,14 @@ const Footer = () => (
             Copyrights &copy;
             {new Date().getFullYear()}
             All Rights Reserved by
-            <a href="http://khriztianmoreno.com"> Khriztianmoreno</a>
+            <a href="https://khriztianmoreno.com"> Khriztianmoreno</a>
           </p>
         </div>
 
         <div className="col-md-4 col-sm-6 col-xs-12">
           <ul className="social-icons">
             <li>
-              <a className="facebook" href="http://fb.com/khriztianmoreno">
+              <a className="facebook" href="https://fb.com/khriztianmoreno">
                 <FontAwesomeIcon icon={['fab', 'facebook']} size="1x" />
               </a>
             </li>
