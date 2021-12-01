@@ -19,7 +19,6 @@ const App = () => (
       isTeacher={boleano}
       hobbies={['coding', '🥳', 'listening to music']}
       profile={profile}
-      sayHello={() => console.log('Hello')}
     >
       <div>
         <h1>title</h1>
