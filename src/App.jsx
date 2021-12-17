@@ -9,6 +9,8 @@ import ApplyJob from './pages/Jobs/Apply';
 import DetailJob from './pages/Jobs/Detail';
 import BrowseJobs from './pages/Jobs';
 
+import Counter from './components/examples/Counter';
+
 const App = () => (
   <Routes>
     <Route path="/" element={<Home />} />
@@ -19,6 +21,7 @@ const App = () => (
     <Route path="/candidates" element={<Candidates />} />
     <Route path="/login" element={<Login />} />
     <Route path="/register" element={<Register />} />
+    <Route path="/counter" element={<Counter />} />
   </Routes>
 );
 
