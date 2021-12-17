@@ -1,32 +1,21 @@
-import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/fontawesome-free-solid';
 
 import useForm from '../../../hooks/useForm';
-import authService from '../../../services/auth';
+import { loginUser } from '../../../context/actions';
+import { useAppDispatch } from '../../../context/store';
 
 const Login = () => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const [hasError, setHasError] = useState(null);
   const { form, handleChange } = useForm({});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await authService.loginAccount(form);
 
-      const data = await response.json();
-
-      if (response.ok) {
-        localStorage.setItem('token', data.token);
-        navigate('/');
-      } else {
-        setHasError(data.message);
-      }
-    } catch (error) {
-      setHasError(error);
-    }
+    loginUser(dispatch, form);
+    navigate('/');
   };
 
   return (
@@ -35,8 +24,6 @@ const Login = () => {
         <div className="login-block">
           <img src="./img/logo.png" alt="Logo" />
           <h1>Log into your account</h1>
-
-          {hasError ? <p className="error">{hasError}</p> : null}
 
           <form onSubmit={handleSubmit}>
             <div className="form-group">

@@ -1,13 +1,24 @@
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { faBars } from '@fortawesome/fontawesome-free-solid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-// eslint-disable-next-line camelcase
-import jwt_decode from 'jwt-decode';
+import { getUserFromLocalStorage, logout } from '../../context/actions';
+import { useAppState, useAppDispatch } from '../../context/store';
 
 const Navigation = () => {
-  const token = localStorage.getItem('token');
-  const decoded = jwt_decode(token);
+  const navigate = useNavigate();
+  const { user } = useAppState();
+  const dispatch = useAppDispatch();
+
+  const handleCloseSession = () => {
+    logout(dispatch);
+    navigate('/');
+  };
+
+  useEffect(() => {
+    getUserFromLocalStorage(dispatch);
+  }, []);
 
   return (
     <nav className="navbar">
@@ -26,10 +37,14 @@ const Navigation = () => {
           </div>
         </div>
         <div className="pull-right user-login">
-          {decoded ? (
-            <div className="btn btn-sm btn-primary">
-              <span>{decoded.fullname}</span>
-            </div>
+          {user ? (
+            <button
+              onClick={handleCloseSession}
+              className="btn btn-sm btn-primary"
+              type="button"
+            >
+              <span>{user.fullname}</span>
+            </button>
           ) : (
             <Link to="/login" className="btn btn-sm btn-primary">
               login
