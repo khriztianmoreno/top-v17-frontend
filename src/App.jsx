@@ -8,6 +8,7 @@ import AddJob from './pages/Jobs/Create';
 import ApplyJob from './pages/Jobs/Apply';
 import DetailJob from './pages/Jobs/Detail';
 import BrowseJobs from './pages/Jobs';
+import Notes from './pages/Notes';
 
 import Counter from './components/examples/Counter';
 
@@ -15,6 +16,7 @@ const App = () => (
   <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/jobs" element={<BrowseJobs />} />
+    <Route path="/notes" element={<Notes />} />
     <Route path="/jobs/create" element={<AddJob />} />
     <Route path="/jobs/detail/:id" element={<DetailJob />} />
     <Route path="/jobs/apply/:id" element={<ApplyJob />} />
